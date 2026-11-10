@@ -1,23 +1,16 @@
 ## Arkytas
 
-Physical AI lab, Ravensburg. We co-design embodiment, data and policy for learned manipulation: imitation learning from teleoperated demonstrations, RL post-training in sim, and a reliability layer that closes the gap between VLA success rates in the literature and what a production cell needs.
+Early-stage physical AI lab, Ravensburg. Learned manipulation: embodiment, data and policy, co-designed.
 
-### Stack
+### Roadmap
 
-- **Embodiments:** open-hardware, 3D-printed arms, swappable end effectors, leader–follower teleop rigs for demonstration capture.
-- **Data:** LeRobot-format episodes with QC and per-episode metadata. Sources: teleop, sim rollouts, later deployment logs.
-- **Policies:** ACT, Diffusion Policy and SmolVLA benchmarked on identical tasks. Next: specialist models for failure detection, cross-embodiment action mapping and high-precision placement.
-- **Sim:** arm and task twin for RL fine-tuning and sim-to-real transfer.
+- **Data collection:** teleop and recording of demonstration datasets
+- **Policy comparison:** ACT vs. Diffusion Policy vs. SmolVLA on an identical task
+- **Sim + RL:** imitation learning from demos, RL fine-tuning in sim, sim-to-real
+- **Cross-embodiment:** second arm, learned action mapping between embodiments
+- **Reliability layer:** failure detection, retry, intervention tracking
+- **Own models:** specialist models first, long term a foundation model
 
-### Eval protocol
+Our arms and grippers will be released here as open hardware. Nothing public yet.
 
-- n ≥ 20 rollouts per condition
-- Success reported as k/n, never a bare percentage
-- Interventions and cycle time logged per rollout
-- In-distribution and OOD conditions never pooled
-
-### Status
-
-Phase 1: data pipeline on an SO-101. Repos go public as components stabilise.
-
-Datasets and checkpoints: [huggingface.co/Arkytas](https://huggingface.co/Arkytas)
+Datasets and policies: [huggingface.co/Arkytas](https://huggingface.co/Arkytas)
