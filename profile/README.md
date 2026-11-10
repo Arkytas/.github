@@ -1,20 +1,23 @@
 ## Arkytas
 
-**Robots that learn by being shown.** Arkytas is a physical AI lab in Ravensburg, Germany. We build robot embodiments, data and models together, so robot arms pick up new tasks from demonstration and practice instead of weeks of programming.
+Physical AI lab, Ravensburg. We co-design embodiment, data and policy for learned manipulation: imitation learning from teleoperated demonstrations, RL post-training in sim, and a reliability layer that closes the gap between VLA success rates in the literature and what a production cell needs.
 
-### What you will find here
+### Stack
 
-- **Embodiments:** 3D-printed robot arms, grippers and devices for recording demonstrations, built from parts you can order.
-- **Data tools:** teleoperation, recording, quality checks and metadata for datasets in the LeRobot format.
-- **Training and evaluation:** policy comparisons (ACT, Diffusion Policy, SmolVLA), simulation and sim-to-real.
+- **Embodiments:** open-hardware, 3D-printed arms, swappable end effectors, leader–follower teleop rigs for demonstration capture.
+- **Data:** LeRobot-format episodes with QC and per-episode metadata. Sources: teleop, sim rollouts, later deployment logs.
+- **Policies:** ACT, Diffusion Policy and SmolVLA benchmarked on identical tasks. Next: specialist models for failure detection, cross-embodiment action mapping and high-precision placement.
+- **Sim:** arm and task twin for RL fine-tuning and sim-to-real transfer.
 
-Repositories open as each part becomes usable. We are at step one: a data pipeline with an SO-101 arm on the bench.
+### Eval protocol
 
-### How we report results
+- n ≥ 20 rollouts per condition
+- Success reported as k/n, never a bare percentage
+- Interventions and cycle time logged per rollout
+- In-distribution and OOD conditions never pooled
 
-At least 20 trials per condition. Success rate with the count (17 of 20, never just 85%). Interventions and cycle time per trial. Seen and unseen conditions reported separately.
+### Status
 
-### Links
+Phase 1: data pipeline on an SO-101. Repos go public as components stabilise.
 
-- Datasets and models: [huggingface.co/Arkytas](https://huggingface.co/Arkytas)
-- Print it, change it, and open an issue for what breaks.
+Datasets and checkpoints: [huggingface.co/Arkytas](https://huggingface.co/Arkytas)
